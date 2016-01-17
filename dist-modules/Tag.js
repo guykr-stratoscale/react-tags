@@ -69,7 +69,7 @@ var Tag = React.createClass({
                 'a',
                 { className: 'ReactTags__remove',
                     onClick: this.props.onDelete },
-                'x'
+                '×'
             )
         )));
     }

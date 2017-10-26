@@ -97,19 +97,19 @@ var ReactTags = function (_Component) {
   }, {
     key: "resetAndFocusInput",
     value: function resetAndFocusInput() {
+      this.textInput.value = "";
+      this.textInput.focus();
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var _props = this.props,
           autofocus = _props.autofocus,
           readOnly = _props.readOnly;
 
       if (autofocus && !readOnly) {
-        this.textInput.value = "";
-        this.textInput.focus();
+        this.resetAndFocusInput();
       }
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.resetAndFocusInput();
     }
   }, {
     key: "filteredSuggestions",
@@ -326,7 +326,8 @@ var ReactTags = function (_Component) {
           moveTag: moveTag,
           removeComponent: this.props.removeComponent,
           readOnly: this.props.readOnly,
-          classNames: this.state.classNames
+          classNames: this.state.classNames,
+          showX: this.props.showX
         });
       }.bind(this));
 
@@ -409,7 +410,8 @@ ReactTags.PropTypes = {
   classNames: _propTypes2.default.object,
   name: _propTypes2.default.string,
   id: _propTypes2.default.string,
-  maxLength: _propTypes2.default.string
+  maxLength: _propTypes2.default.string,
+  showX: _propTypes2.default.bool
 };
 
 ReactTags.defaultProps = {
@@ -422,7 +424,8 @@ ReactTags.defaultProps = {
   allowDeleteFromEmptyInput: true,
   minQueryLength: 2,
   autocomplete: false,
-  readOnly: false
+  readOnly: false,
+  showX: true
 };
 
 module.exports = {

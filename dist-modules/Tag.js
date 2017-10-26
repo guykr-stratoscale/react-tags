@@ -97,7 +97,7 @@ function RemoveComponent(props) {
   return _react2.default.createElement(
     "a",
     { onClick: props.onClick, className: props.className },
-    String.fromCharCode(215)
+    props.showX ? String.fromCharCode(215) : null
   );
 }
 
@@ -137,7 +137,8 @@ var Tag = function (_Component2) {
           className: props.classNames.remove,
           removeComponent: props.removeComponent,
           onClick: props.onDelete,
-          readOnly: props.readOnly
+          readOnly: props.readOnly,
+          showX: props.showX
         })
       );
       return connectDragSource(connectDropTarget(tagComponent));
@@ -157,7 +158,8 @@ Tag.PropTypes = {
   readOnly: _propTypes2.default.bool,
   connectDragSource: _propTypes2.default.func.isRequired,
   isDragging: _propTypes2.default.bool.isRequired,
-  connectDropTarget: _propTypes2.default.func.isRequired
+  connectDropTarget: _propTypes2.default.func.isRequired,
+  showX: _propTypes2.default.bool
 };
 
 Tag.defaultProps = {
